@@ -39,6 +39,11 @@ class CardSortAndFilters extends StatelessWidget {
             IconButton(
                 onPressed: () {
                   showBottomSheet(
+                    shape: BeveledRectangleBorder(
+                        // color: Colors.grey[200],
+                        borderRadius: BorderRadius.only(
+                            topLeft: const Radius.circular(20).r,
+                            topRight: const Radius.circular(20).r)),
                     context: context,
                     builder: (context) {
                       return const ListViewSort();
