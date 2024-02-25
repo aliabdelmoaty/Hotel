@@ -152,3 +152,122 @@ class PointsCounter extends StatelessWidget {
     );
   }
 }
+
+//--------------
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(PointsCounter());
+}
+
+class PointsCounter extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: Scaffold(
+        appBar: AppBar(
+          backgroundColor: Colors.orange,
+          title: const Text(
+            'Points counter',
+            style: TextStyle(color: Colors.white),
+          ),
+        ),
+        body: Column(
+          children: [
+            // عشان تعمل مساحة فاضية
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  itemTeam(nameTeam: 'Team A',),
+                  // عشان تاخد المساحة الباقية
+                  Spacer(),
+                  SizedBox(
+                    width: 50,
+                    height: 550,
+                    child: VerticalDivider(
+                      thickness: 2,
+                      color: Colors.black,
+                      indent: 15,
+                    ),
+                  ),
+                  // عشان تاخد المساحة الباقية
+
+                  Spacer(),
+                  // Team B
+                  itemTeam(
+                    nameTeam: 'Team B',
+                  ),
+                  
+                ],
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class itemTeam extends StatelessWidget {
+  const itemTeam({
+    super.key, required this.nameTeam,
+  });
+  final String nameTeam;
+  
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        // Team A
+         Text(nameTeam, style: TextStyle(fontSize: 35)),
+        const Text('0', style: TextStyle(fontSize: 200)),
+        ElevatedButton(
+          onPressed: () {},
+          child: const Text('Add 1 point',
+              style: TextStyle(color: Colors.black, fontSize: 15)),
+          style: ElevatedButton.styleFrom(
+            backgroundColor: Colors.orange,
+            minimumSize: const Size(150, 50),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(8),
+            ),
+          ),
+        ),
+        const SizedBox(
+          height: 22,
+        ),
+        ElevatedButton(
+          onPressed: () {},
+          child: const Text('Add 2 point',
+              style: TextStyle(color: Colors.black, fontSize: 15)),
+          style: ElevatedButton.styleFrom(
+            backgroundColor: Colors.orange,
+            minimumSize: const Size(150, 50),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(8),
+            ),
+          ),
+        ),
+        const SizedBox(
+          height: 22,
+        ),
+        ElevatedButton(
+          onPressed: () {},
+          child: const Text('Add 3 points',
+              style: TextStyle(color: Colors.black, fontSize: 15)),
+          style: ElevatedButton.styleFrom(
+            backgroundColor: Colors.orange,
+            minimumSize: const Size(150, 50),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(8),
+            ),
+          ),
+        ),
+      ],
+    );
+  }
+}
+
